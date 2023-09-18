@@ -1,0 +1,20 @@
+{
+	query: '
+		query MyQuery($limit: Int, $offset: Int) {
+			posts(limit: $limit, offset: $offset) {
+				id
+				title
+				post
+			}
+			posts_aggregate {
+				aggregate {
+					count
+				}
+			}
+		}
+	',
+	variables: {
+		"limit": {{Table_graphql.pageSize}},
+		"offset": {{(Table_graphql.pageNo - 1) * Table_graphql.pageSize}}
+	}
+}

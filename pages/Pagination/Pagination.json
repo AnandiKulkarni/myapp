@@ -1,0 +1,118 @@
+{
+  "unpublishedPage": {
+    "name": "Pagination",
+    "slug": "pagination",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1160,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 610,
+          "containerStyle": "none",
+          "snapRows": 68,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 86,
+          "minHeight": 620,
+          "parentColumnSpace": 1,
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "Pagination_fetch_movies_data",
+              "name": "fetch_movies_data",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "(Table_Mongo.pageNo - 1) * Table_Mongo.pageSize",
+                "Table_Mongo.pageSize"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Pagination_fetch_users_data",
+              "name": "fetch_users_data",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "Table1.pageNo",
+                "Table1.pageSize",
+                "Table1.pageSize > 5 ? \"DESC\" : \"ASC\""
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Pagination_fetch_movies_count",
+              "name": "fetch_movies_count",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Pagination_fetch_users_count",
+              "name": "fetch_users_count",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Pagination_fetch_dummy_posts",
+              "name": "fetch_dummy_posts",
+              "confirmBeforeExecute": false,
+              "pluginType": "API",
+              "jsonPathKeys": [
+                "Table_graphql.pageSize",
+                "(Table_graphql.pageNo - 1) * Table_graphql.pageSize"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Pagination_fetch_dummy_data",
+              "name": "fetch_dummy_data",
+              "confirmBeforeExecute": false,
+              "pluginType": "SAAS",
+              "jsonPathKeys": [
+                "(Table_gsheet.pageNo - 1) * Table_gsheet.pageSize",
+                "Table_gsheet.pageSize"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "mongoEscapedWidgetNames": [
+          "Table_Mongo"
+        ],
+        "validOnPageLoadActions": true,
+        "id": "Pagination",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": false
+  },
+  "deleted": false,
+  "gitSyncId": "650020702a2df723bd19eb9a_650020702a2df723bd19eb9c"
+}
