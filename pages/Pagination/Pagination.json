@@ -70,32 +70,6 @@
               "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
             }
-          ],
-          [
-            {
-              "id": "Pagination_fetch_dummy_posts",
-              "name": "fetch_dummy_posts",
-              "confirmBeforeExecute": false,
-              "pluginType": "API",
-              "jsonPathKeys": [
-                "Table_graphql.pageSize",
-                "(Table_graphql.pageNo - 1) * Table_graphql.pageSize"
-              ],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
-              "id": "Pagination_fetch_dummy_data",
-              "name": "fetch_dummy_data",
-              "confirmBeforeExecute": false,
-              "pluginType": "SAAS",
-              "jsonPathKeys": [
-                "(Table_gsheet.pageNo - 1) * Table_gsheet.pageSize",
-                "Table_gsheet.pageSize"
-              ],
-              "timeoutInMillisecond": 10000
-            }
           ]
         ],
         "layoutOnLoadActionErrors": [],
